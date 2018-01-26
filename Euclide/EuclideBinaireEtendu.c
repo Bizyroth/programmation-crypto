@@ -1,0 +1,176 @@
+//------------------------------
+//|                            |  
+//|  Algorithme Euclide Etendu |
+//|                            |
+//------------------------------
+
+#include <stdio.h>
+#include <time.h>
+//Entrée: deux entiers a, b non nuls
+//Sortie u,v,p tels que au + bv = p avec p=pgcd(a,b) (Bézout)
+
+//u est affecté à pu
+//v est affecté à pv
+
+int BezoutBinaire(int * pu, int * pv, int a, int b){
+
+	int u,v,r,s,p,q;
+	int d=0;
+	
+	/* tant que a et b sont tout deux pairs, les diviser par deux */
+	/* compter l'exposant de la puissance de 2 commune            */
+	
+	while( ((a&1)==0) && ((b&1)==0) ){
+		a>>=1;
+		b>>=1;
+		d++;
+	}
+	/*a et b pas tous les deux pairs, on maintient la relation*/
+	/*au+bv=p     et     ar+bs=q                              */
+	/* On deroule Euclide et a la fin p=pgcd(a,b)             */
+	u=1; r=0;
+	v=0; s=1;
+	p=a;
+	q=b;
+	
+	while(q!=0){
+		
+		while((p&1)==0){   // on maintient p impair
+			p>>=1;
+			if( ((u&1)==0) && ((v&1)==0)){
+				u>>=1;
+				v>>=1;
+			}
+			else{
+				u=(u-b)>>1;
+				v=(v+a)>>1;
+			}
+		}
+		
+		while((q&1)==0){   // on maintient p impair
+			q>>=1;
+			if(((r&1)==0) && ((s&1)==0)){
+				r>>=1;
+				s>>=1;
+			}
+			else{
+				r=(r-b)>>1;
+				s=(s+a)>>1;
+			}
+		}
+		if(p>q){      //pgcd(p, q)=pgcd(p-q, q)
+		
+			p-=q;
+			v-=s;
+			u-=r;
+		}
+		else{
+			q-=p;
+			s-=v;
+			r-=u;
+		}
+	}
+	*pu=u;
+	*pv=v;
+	return p<<d;
+}
+	
+
+long long BezoutBinaireLong(long long * pu, long long * pv, long long a, long long b){
+
+	long long u,v,r,s,p,q;
+	long long d=0;
+	
+	/* tant que a et b sont tout deux pairs, les diviser par deux */
+	/* compter l'exposant de la puissance de 2 commune            */
+	
+	while( ((a&1)==0) && ((b&1)==0) ){
+		a>>=1;
+		b>>=1;
+		d++;
+	}
+	/*a et b pas tous les deux pairs, on maintient la relation*/
+	/*au+bv=p     et     ar+bs=q                              */
+	/* On deroule Euclide et a la fin p=pgcd(a,b)             */
+	u=1; r=0;
+	v=0; s=1;
+	p=a;
+	q=b;
+	
+	while(q!=0){
+		
+		while((p&1)==0){   // on maintient p impair
+			p>>=1;
+			if( ((u&1)==0) && ((v&1)==0)){
+				u>>=1;
+				v>>=1;
+			}
+			else{
+				u=(u-b)>>1;
+				v=(v+a)>>1;
+			}
+		}
+		
+		while((q&1)==0){   // on maintient p impair
+			q>>=1;
+			if(((r&1)==0) && ((s&1)==0)){
+				r>>=1;
+				s>>=1;
+			}
+			else{
+				r=(r-b)>>1;
+				s=(s+a)>>1;
+			}
+		}
+		if(p>q){      //pgcd(p, q)=pgcd(p-q, q)
+		
+			p-=q;
+			v-=s;
+			u-=r;
+		}
+		else{
+			q-=p;
+			s-=v;
+			r-=u;
+		}
+	}
+	*pu=u;
+	*pv=v;
+	return p<<d;
+}
+
+
+
+
+	
+int main(){
+	long long a=16100103039491LL;
+	long long b=1000093938183LL;
+	long long u,v,p;
+    float temps;
+    clock_t t1, t2;
+ 
+    t1 = clock();
+	p=BezoutBinaireLong(&u,&v, a,b);
+
+	
+	printf("Bezout: %lld*%lld + %lld*%lld = %lld (%lld)\n", a,u,b,v,p, a*u+b*v);
+    t2 = clock();
+    temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+    printf("temps = %f\n", temps);
+	return 0;
+}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

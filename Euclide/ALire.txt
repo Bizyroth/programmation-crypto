@@ -1,0 +1,23 @@
+unsigned int EuclideBinaire1(unsigned int a, unsigned int b) division euclidienne binaire de a par b de facon bete
+
+unsigned int EuclideBinaire2(unsigned int a, unsigned int b) division euclidienne binaire de a par b de facon moins bete
+
+/*--------------b IMPAIR---------------------*/
+
+unsigned int MoitieModImpair(unsigned int x, unsigned int b) calcule de x/2 mod b
+
+unsigned int SubMod(unsigned int x, unsigned int y, unsigned int b) calcul de |x-y| mod b
+
+unsigned int InvModImpair(unsigned int * pu, unsigned int a, unsigned int b) calcul de l'inverse de a modulo b. Place le resultat dans pu
+
+
+//2 EME FICHIER EuclideBinaireEtendu.c           EFFICACE A UTILISER
+ int BezoutBinaire(int * pu, int * pv, int a, int b)  
+
+
+calcule les coefficients de Bezout de a et b
+Place u dans pu et v dans pv tq au+bv=p avec p=pgcd(a,b)
+
+long long BezoutBinaireLong(long long* pu, long long * pv, long long a, long long b)
+
+A compiler avec -std=c99  
