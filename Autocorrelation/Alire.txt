@@ -1,0 +1,5 @@
+void Autocorrelation(int * r, int * f, int n) 
+
+int PC(int * f, int n)
+
+void Derive(int * res, int * f, int n, int a)

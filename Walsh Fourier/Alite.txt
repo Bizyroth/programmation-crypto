@@ -1,0 +1,9 @@
+Walsh.c
+
+void power(int * f, int n) ----> pour une table f et de taille 2^n renvoie la table de (-1)^f
+
+void Fourier(int * t, int n) --> met dans t la transforme de fourier de t de taille 2^n
+
+void Walsh(int * f, int n) ----> met dans f la transforme de fourier de (-1)^f de tailler 2^n
+
+int resilience(int * f, int n)-> calcule la resilience de f de taille (-1)^n 

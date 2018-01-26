@@ -1,0 +1,12 @@
+void power(int * res, int * table, int n) calcule (-1)^table et met le resultat dans res
+
+void Fourier(int * res, int * table, int n) calcule la transforme de fourier de table et met le resultat dans res
+
+void Walsh(int * res, int * table, int n) calcule la transforme de walsh de table et met le resultat dans res
+
+unsigned int NL(int *f, int n) calcule la non linearite de la fonction f a n variables
+
+int estCourbeCar(int * f, int n)
+int estCourbeMax(int * f, int n)  renvoi 1 si la fonction est courbe 0 sinon
+
+

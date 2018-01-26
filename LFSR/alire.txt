@@ -1,0 +1,18 @@
+unsigned int Etat; 			// registre code sur un bit
+unsigned int Polynome=0xc9; // polynome caracteristique
+
+/*-----------initialisation du registre-----------------*/
+void initialise(unsigned int e)
+
+/*--------------affiche l'etat du registre---------------------*/
+void Affiche()
+
+/*------------calcul du premier coefficent du registre----------*/
+unsigned int Rebouclage(){
+
+/*-----------focntion qui fait tourner le registre------------------*/
+void Avance()
+
+int periode(unsigned int EtatInitial) calcule la periode du registre
+
+
